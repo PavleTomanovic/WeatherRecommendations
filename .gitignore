@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.wsuo
+/.vs/WeatherRecommendations/v17/DocumentLayout.json
+*.bin
+*.v2
+*.vsidx
+/WheaterRecBackend/.vs/WheaterRecBackend/v17/DocumentLayout.backup.json
+/WheaterRecBackend/.vs/WheaterRecBackend/v17/DocumentLayout.json
+*.suo
+/.vs/VSWorkspaceState.json
