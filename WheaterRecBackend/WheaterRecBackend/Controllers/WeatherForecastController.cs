@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WheaterRecBackend.Services;
 
 namespace WheaterRecBackend.Controllers
 {
@@ -12,10 +13,14 @@ namespace WheaterRecBackend.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly KafkaProducerService _producerService;
+        private readonly WeatherService _weatherService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, KafkaProducerService producerService, WeatherService weatherService)
         {
             _logger = logger;
+            _producerService = producerService;
+            _weatherService = weatherService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -29,5 +34,23 @@ namespace WheaterRecBackend.Controllers
             })
             .ToArray();
         }
+        
+        [HttpGet("{location}")]
+        public async Task<IActionResult> GetWeather(string location)
+        {
+            var weatherData = await _weatherService.GetCurrentWeatherAsync(location);
+            if (weatherData == null)
+            {
+                return NotFound("Weather data could not be retrieved.");
+            }
+
+            // Send to Kafka
+            await _producerService.SendWeatherDataAsync(weatherData);
+
+            return Ok(weatherData);
+        }
+        
+        
+        
     }
 }

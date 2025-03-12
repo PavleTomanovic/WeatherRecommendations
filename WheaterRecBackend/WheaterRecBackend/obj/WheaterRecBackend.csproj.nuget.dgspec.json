@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PavleTomanovic\\source\\repos\\WeatherRecommendations\\WheaterRecBackend\\WheaterRecBackend\\WheaterRecBackend.csproj": {}
+    "/Users/ana/Documents/fh/master/sfr/weather/WeatherRecommendations/WheaterRecBackend/WheaterRecBackend/WheaterRecBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PavleTomanovic\\source\\repos\\WeatherRecommendations\\WheaterRecBackend\\WheaterRecBackend\\WheaterRecBackend.csproj": {
+    "/Users/ana/Documents/fh/master/sfr/weather/WeatherRecommendations/WheaterRecBackend/WheaterRecBackend/WheaterRecBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PavleTomanovic\\source\\repos\\WeatherRecommendations\\WheaterRecBackend\\WheaterRecBackend\\WheaterRecBackend.csproj",
+        "projectUniqueName": "/Users/ana/Documents/fh/master/sfr/weather/WeatherRecommendations/WheaterRecBackend/WheaterRecBackend/WheaterRecBackend.csproj",
         "projectName": "WheaterRecBackend",
-        "projectPath": "C:\\Users\\PavleTomanovic\\source\\repos\\WeatherRecommendations\\WheaterRecBackend\\WheaterRecBackend\\WheaterRecBackend.csproj",
-        "packagesPath": "C:\\Users\\PavleTomanovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PavleTomanovic\\source\\repos\\WeatherRecommendations\\WheaterRecBackend\\WheaterRecBackend\\obj\\",
+        "projectPath": "/Users/ana/Documents/fh/master/sfr/weather/WeatherRecommendations/WheaterRecBackend/WheaterRecBackend/WheaterRecBackend.csproj",
+        "packagesPath": "/Users/ana/.nuget/packages/",
+        "outputPath": "/Users/ana/Documents/fh/master/sfr/weather/WeatherRecommendations/WheaterRecBackend/WheaterRecBackend/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\PavleTomanovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/ana/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,13 +37,24 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            },
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[112.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -75,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

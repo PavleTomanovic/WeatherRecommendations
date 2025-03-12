@@ -1,0 +1,29 @@
+Open a terminal and navigate to the directory where the file is located.
+
+Run
+
+docker-compose up -d
+
+Check if Kafka and Zookeeper are running:
+
+docker-compose ps
+
+Check existing topics
+
+docker exec -it kafka kafka-topics --list --bootstrap-server localhost:9092
+
+If none, create manually
+
+docker exec -it kafka kafka-topics --create --topic weather_data --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
+Make sure Kafka is running and execute dotnet 
+
+dotnet run
+
+Send a test request (curl or postman)
+
+http://localhost:5057/WeatherForecast/New+York
+
+Read message from Kafka topic
+
+docker exec -it kafka kafka-console-consumer --topic weather_data --from-beginning --bootstrap-server localhost:9092
