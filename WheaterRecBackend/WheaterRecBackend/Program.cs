@@ -13,15 +13,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add Kafka Producer Service to DI
-builder.Services.AddSingleton<KafkaProducerService>();
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<WeatherService>();         
-builder.Services.AddScoped<KafkaProducerService>(); 
+builder.Services.AddSingleton<KafkaProducerService>();
+builder.Services.AddHostedService<KafkaConsumerService>();
+builder.Services.AddHttpClient<WeatherService>();         
 
 var app = builder.Build();
 

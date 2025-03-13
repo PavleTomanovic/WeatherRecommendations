@@ -7,36 +7,27 @@ using WheaterRecBackend.Models;
 
 namespace WheaterRecBackend.Services
 {
+    using Confluent.Kafka;
+    using Microsoft.Extensions.Configuration;
+
     public class KafkaProducerService
     {
-        private readonly string _bootstrapServers;
+        private readonly IProducer<Null, string> _producer;
         private readonly string _topic;
 
         public KafkaProducerService(IConfiguration configuration)
         {
-            _bootstrapServers = configuration["Kafka:BootstrapServers"];
+            var config = new ProducerConfig
+            {
+                BootstrapServers = configuration["Kafka:BootstrapServers"]
+            };
+            _producer = new ProducerBuilder<Null, string>(config).Build();
             _topic = configuration["Kafka:Topic"];
         }
 
-        public async Task SendWeatherDataAsync(WeatherData weatherData)
+        public async Task ProduceAsync(string message)
         {
-            var config = new ProducerConfig { BootstrapServers = _bootstrapServers };
-            using var producer = new ProducerBuilder<Null, string>(config).Build();
-
-            try
-            {
-                // Convert WeatherData object to JSON string
-                var message = JsonSerializer.Serialize(weatherData);
-
-                // Produce message to Kafka
-                var deliveryResult = await producer.ProduceAsync(_topic, new Message<Null, string> { Value = message });
-
-                Console.WriteLine($"Message sent to Kafka topic '{_topic}': {message}");
-            }
-            catch (ProduceException<Null, string> ex)
-            {
-                Console.WriteLine($"Delivery failed: {ex.Error.Reason}");
-            }
+            await _producer.ProduceAsync(_topic, new Message<Null, string> { Value = message });
         }
     }
 }

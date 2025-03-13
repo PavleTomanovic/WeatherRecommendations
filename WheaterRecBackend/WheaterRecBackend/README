@@ -1,5 +1,7 @@
 Open a terminal and navigate to the directory where the file is located.
 
+Note: On a OSX bitami kafka
+
 Run
 
 docker-compose up -d
@@ -10,12 +12,19 @@ docker-compose ps
 
 Check existing topics
 
-docker exec -it kafka kafka-topics --list --bootstrap-server localhost:9092
-
+docker exec -it kafka1 /opt/bitnami/kafka/bin/kafka-topics.sh --describe \
+  --topic weather-topic \
+  --bootstrap-server kafka1:9092
+  
 If none, create manually
 
-docker exec -it kafka kafka-topics --create --topic weather_data --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
-
+docker exec -it kafka1 /opt/bitnami/kafka/bin/kafka-topics.sh --create \
+  --topic weather-topic \
+  --partitions 3 \
+  --replication-factor 3 \
+  --bootstrap-server kafka1:9092
+  
+  
 Make sure Kafka is running and execute dotnet 
 
 dotnet run

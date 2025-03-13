@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WheaterRecBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+385461f6aae1ccd049ac3dfad7a01be4ef1df8ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+127415e3f96a73c9b9a8f8fff49d22a82fcf508e")]
 [assembly: System.Reflection.AssemblyProductAttribute("WheaterRecBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WheaterRecBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
