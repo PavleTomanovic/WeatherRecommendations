@@ -36,12 +36,12 @@ namespace WheaterRecBackend.Controllers
         }
         
         [HttpGet("current")]
-        public async Task<IActionResult> GetCurrentWeather([FromQuery] string query)
+        public async Task<IActionResult> GetCurrentWeather([FromQuery] string location)
         {
             try
             {
                 // Fetch weather data from Weatherstack API
-                var weatherData = await _weatherService.GetWeatherAsync(query);
+                var weatherData = await _weatherService.GetWeatherAsync(location);
 
                 // Produce the weather data to Kafka
                 await _producerService.ProduceAsync(weatherData);

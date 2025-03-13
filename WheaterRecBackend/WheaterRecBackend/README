@@ -1,3 +1,8 @@
+install zookeeper
+install kafka
+
+i onda...
+
 Open a terminal and navigate to the directory where the file is located.
 
 Note: On a OSX bitami kafka
